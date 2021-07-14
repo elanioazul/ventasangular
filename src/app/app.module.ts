@@ -10,6 +10,7 @@ import { ClienteComponent } from './components/cliente/cliente.component';
 
 import {SidebarModule} from 'primeng/sidebar';
 import {ButtonModule} from 'primeng/button';
+import {TableModule} from 'primeng/table';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import {ButtonModule} from 'primeng/button';
     BrowserAnimationsModule,
     SidebarModule,
     ButtonModule,
+    TableModule,
     HttpClientModule
   ],
   providers: [],
