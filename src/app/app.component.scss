@@ -1,0 +1,28 @@
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  &__navigator {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    padding: 1rem 2rem;
+    list-style-type: none; 
+
+    &-item {
+      flex-grow: 1;
+    }
+    &-link {
+      flex-direction: 1;
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+}
+.active {
+  font-weight: 200;
+  color: blue;
+}
