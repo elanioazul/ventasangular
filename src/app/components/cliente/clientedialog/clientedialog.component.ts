@@ -10,7 +10,7 @@ import {ClienteComponent} from '../cliente.component';
 })
 export class ClientedialogComponent implements OnInit {
 
-  display: boolean = false;
+  public display: boolean = false;
   public clienteName: string;
 
   constructor(public service: ApiclienteService, public clienteC: ClienteComponent) { 

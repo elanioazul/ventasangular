@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiclienteService } from '../../services/apicliente.service';
 import { Response } from '../../models/response';
 import { Cliente } from 'src/app/models/cliente';
+import {DialogModule} from 'primeng/dialog';
 @Component({
   selector: 'app-cliente',
   templateUrl: './cliente.component.html',
@@ -11,7 +12,11 @@ export class ClienteComponent implements OnInit {
 
   public lst!: Cliente[];
 
-  constructor(private api: ApiclienteService) { 
+  public displayPosition?: boolean;
+
+  public position?: string;
+
+  constructor(private api: ApiclienteService, public d: DialogModule) { 
   }
 
   ngOnInit(): void {
@@ -23,5 +28,10 @@ export class ClienteComponent implements OnInit {
       //console.log(res)
       this.lst = res.data;
     })
+  }
+
+  showPositionDialog(position: string, id: number) {
+      this.position = position;
+      this.displayPosition = true;
   }
 }
