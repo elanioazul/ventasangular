@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from 'src/app/models/cliente';
 import { ApiclienteService } from '../../../services/apicliente.service';
-import {Message,MessageService} from 'primeng/api';
+import {ClienteComponent} from '../cliente.component';
 
 @Component({
   selector: 'app-clientedialog',
@@ -13,7 +13,7 @@ export class ClientedialogComponent implements OnInit {
   display: boolean = false;
   public clienteName: string;
 
-  constructor(public service: ApiclienteService) { 
+  constructor(public service: ApiclienteService, public clienteC: ClienteComponent) { 
     this.clienteName = ''
   }
 
@@ -30,6 +30,7 @@ export class ClientedialogComponent implements OnInit {
       if (res.exito === 1) {
         window.alert('cliente insertado')
       }
+      this.clienteC.obtainClientes();
     })
   }
 
