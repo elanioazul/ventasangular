@@ -6,7 +6,7 @@ import { Cliente } from '../models/cliente';
 
 const httpOptions = {
   headers: new HttpHeaders({
-    "Content-type": "applicacion/json"
+    "Content-Type": "application/json"
   })
 }
 
