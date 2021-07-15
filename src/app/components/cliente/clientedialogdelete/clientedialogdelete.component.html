@@ -1,0 +1,8 @@
+<p-dialog header="Delete client" [(visible)]="displayPosition" [modal]="true" [baseZIndex]="10000" [draggable]="false"
+  [resizable]="false" [style]="{width: '50vw'}" [transitionOptions]="'0ms'">
+  <ng-template pTemplate="footer">
+    <p-button icon="pi pi-check" (click)="displayPosition=false" label="Ok" styleClass="p-button-text"></p-button>
+  </ng-template>
+</p-dialog>
+<p-button (click)="showPositionDialog('right')" label="Borrar" icon="pi pi-check" styleClass="p-button-sm">
+</p-button>

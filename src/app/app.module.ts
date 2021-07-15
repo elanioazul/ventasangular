@@ -16,13 +16,17 @@ import {DialogModule} from 'primeng/dialog';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import { ClientedialogComponent } from './components/cliente/clientedialog/clientedialog.component';
+import { ClientedialogeditComponent } from './components/cliente/clientedialogedit/clientedialogedit.component';
+import { ClientedialogdeleteComponent } from './components/cliente/clientedialogdelete/clientedialogdelete.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ClienteComponent,
-    ClientedialogComponent
+    ClientedialogComponent,
+    ClientedialogeditComponent,
+    ClientedialogdeleteComponent
   ],
   imports: [
     BrowserModule,

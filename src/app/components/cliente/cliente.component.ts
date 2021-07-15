@@ -12,9 +12,7 @@ export class ClienteComponent implements OnInit {
 
   public lst!: Cliente[];
 
-  public displayPosition?: boolean;
 
-  public position?: string;
 
   constructor(private api: ApiclienteService, public d: DialogModule) { 
   }
@@ -30,8 +28,4 @@ export class ClienteComponent implements OnInit {
     })
   }
 
-  showPositionDialog(position: string, id: number) {
-      this.position = position;
-      this.displayPosition = true;
-  }
 }
