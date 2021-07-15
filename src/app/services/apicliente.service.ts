@@ -26,4 +26,13 @@ export class ApiclienteService {
   addCliente(cliente: Cliente): Observable<Response> {
     return this.http.post<Response>(this.url, cliente, httpOptions)
   }
+
+  editCliente(cliente: Cliente): Observable<Response> {
+    return this.http.put<Response>(this.url, cliente, httpOptions)
+  }
+
+  //el id para eliminar viene por url
+  deleteCliente(id: number): Observable<Response> { 
+    return this.http.delete<Response>(`this.url/${id}}`)
+  }
 }
