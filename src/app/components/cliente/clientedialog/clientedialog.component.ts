@@ -11,10 +11,10 @@ import {ClienteComponent} from '../cliente.component';
 export class ClientedialogComponent implements OnInit {
 
   public display: boolean = false;
-  public clienteName: string;
+  public nombre: string;
 
   constructor(public service: ApiclienteService, public clienteC: ClienteComponent) { 
-    this.clienteName = ''
+    this.nombre = ''
   }
 
   ngOnInit(){
@@ -25,7 +25,7 @@ export class ClientedialogComponent implements OnInit {
   }
 
   addClient() {
-    let c: Cliente = { nombre: this.clienteName};
+    let c: Cliente = { nombre: this.nombre, id : 0};
     this.service.addCliente(c).subscribe( res => {
       if (res.exito === 1) {
         window.alert('cliente insertado')

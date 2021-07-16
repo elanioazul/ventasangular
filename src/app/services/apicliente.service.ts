@@ -33,6 +33,6 @@ export class ApiclienteService {
 
   //el id para eliminar viene por url
   deleteCliente(id: number): Observable<Response> { 
-    return this.http.delete<Response>(`this.url/${id}}`)
+    return this.http.delete<Response>(`${this.url}/${id}`)
   }
 }

@@ -12,8 +12,8 @@
       <td>{{cliente.id}}</td>
       <td>{{cliente.nombre}}</td>
       <td>
-        <app-clientedialogedit [name]="cliente.nombre" [indexito]="cliente.id"></app-clientedialogedit>
-        <app-clientedialogdelete [indexito]="cliente.id"></app-clientedialogdelete>
+        <app-clientedialogedit [inputCliente]="cliente"></app-clientedialogedit>
+        <app-clientedialogdelete [inputCliente]="cliente"></app-clientedialogdelete>
       </td>
     </tr>
   </ng-template>
