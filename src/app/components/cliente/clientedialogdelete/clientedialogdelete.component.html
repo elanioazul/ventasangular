@@ -4,5 +4,5 @@
     <p-button icon="pi pi-check" (click)="displayPosition=false" label="Ok" styleClass="p-button-text"></p-button>
   </ng-template>
 </p-dialog>
-<p-button (click)="showPositionDialog('right')" label="Borrar" icon="pi pi-check" styleClass="p-button-sm">
-</p-button>
+<button (click)="showPositionDialog('right')" pButton pRipple type="button" icon="pi pi-trash" label="Delete"
+  class="p-button-danger"></button>
