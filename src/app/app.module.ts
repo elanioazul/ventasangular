@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { NgxsModule } from '@ngxs/store';
+import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,6 +32,12 @@ import { ClientedialogdeleteComponent } from './components/cliente/clientedialog
   ],
   imports: [
     BrowserModule,
+		NgxsModule.forRoot([], {
+			selectorOptions: {
+				suppressErrors: false, // `true` by default
+			},
+		}),
+    NgxsLoggerPluginModule.forRoot(),
     AppRoutingModule,
     BrowserAnimationsModule,
     SidebarModule,
