@@ -38,7 +38,7 @@ export class ClientedialogeditComponent implements OnInit {
     if (this.clienteToManage !== undefined && this.nombre !== undefined) {
       let c: Cliente = { id: this.clienteToManage.id, nombre: this.nombre};
       this.service.editCliente(c).subscribe( res => {
-        if (res.exito === 1) {
+        if (res.nombre) {
           window.alert('cliente Editado')
         }
         this.clienteC.obtainClientes();

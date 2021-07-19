@@ -27,7 +27,7 @@ export class ClientedialogComponent implements OnInit {
   addClient() {
     let c: Cliente = { nombre: this.nombre, id : 0};
     this.service.addCliente(c).subscribe( res => {
-      if (res.exito === 1) {
+      if (res.nombre) {
         window.alert('cliente insertado')
       }
       this.clienteC.obtainClientes();

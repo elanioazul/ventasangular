@@ -6,8 +6,11 @@ import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
 export class ClienteStateModel {
-  clientes?: Cliente[];
+  clientes: Cliente[];
   areClientesLoaded?: boolean
+  constructor(){
+    this.clientes = [];
+  }
 }
 
 const initialClienteState: ClienteStateModel = {
@@ -71,7 +74,7 @@ export class ClienteState {
     return this.clientesS.editCliente(payload).pipe(
       tap(result => {
         const state = getState();
-        const clienteList = [...state.clientes];
+        const clienteList = [ ...state.clientes];
         const clienteIndex = clienteList.findIndex(item => item.id === payload.id);
         clienteList[clienteIndex] = result;
 

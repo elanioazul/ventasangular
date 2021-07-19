@@ -34,7 +34,7 @@ export class ClientedialogdeleteComponent implements OnInit {
   deleteCliente() {
     if (this.clienteToManage !== undefined && this.id !== undefined) {
       this.service.deleteCliente(this.id).subscribe( res => {
-        if (res.exito === 1) {
+        if (res.nombre) {
           window.alert('cliente Borrado')
         }
         this.clienteC.obtainClientes();

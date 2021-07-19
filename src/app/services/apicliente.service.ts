@@ -23,16 +23,16 @@ export class ApiclienteService {
     return this.http.get<Cliente[]>(this.url)
   }
 
-  addCliente(cliente: Cliente): Observable<Response> {
-    return this.http.post<Response>(this.url, cliente, httpOptions)
+  addCliente(cliente: Cliente): Observable<Cliente> {
+    return this.http.post<Cliente>(this.url, cliente, httpOptions)
   }
 
-  editCliente(cliente: Cliente): Observable<Response> {
-    return this.http.put<Response>(this.url, cliente, httpOptions)
+  editCliente(cliente: Cliente): Observable<Cliente> {
+    return this.http.put<Cliente>(this.url, cliente, httpOptions)
   }
 
   //el id para eliminar viene por url
-  deleteCliente(id: number): Observable<Response> { 
-    return this.http.delete<Response>(`${this.url}/${id}`)
+  deleteCliente(id: number): Observable<Cliente> { 
+    return this.http.delete<Cliente>(`${this.url}/${id}`)
   }
 }
