@@ -8,8 +8,6 @@ import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HomeComponent } from './components/home/home.component';
-import { ClienteComponent } from './components/cliente/cliente.component';
 
 import {SidebarModule} from 'primeng/sidebar';
 import {ButtonModule} from 'primeng/button';
@@ -17,10 +15,13 @@ import {TableModule} from 'primeng/table';
 import {DialogModule} from 'primeng/dialog';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
+
+import { HomeComponent } from './components/home/home.component';
+import { ClienteComponent } from './components/cliente/cliente.component';
 import { ClientedialogComponent } from './components/cliente/clientedialog/clientedialog.component';
 import { ClientedialogeditComponent } from './components/cliente/clientedialogedit/clientedialogedit.component';
 import { ClientedialogdeleteComponent } from './components/cliente/clientedialogdelete/clientedialogdelete.component';
-
+import { ClienteState } from '../app/store/cliente.state';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,7 @@ import { ClientedialogdeleteComponent } from './components/cliente/clientedialog
   ],
   imports: [
     BrowserModule,
-		NgxsModule.forRoot([], {
+		NgxsModule.forRoot([ClienteState], {
 			selectorOptions: {
 				suppressErrors: false, // `true` by default
 			},
