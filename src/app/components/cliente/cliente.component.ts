@@ -22,9 +22,9 @@ export class ClienteComponent implements OnInit {
   }
 
   obtainClientes() {
-    this.api.getClientes().subscribe ( (res: Response) => {
+    this.api.getClientes().subscribe ( (res: Cliente[]) => {
       //console.log(res)
-      this.lst = res.data;
+      this.lst = res;
     })
   }
 

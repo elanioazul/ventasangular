@@ -19,8 +19,8 @@ export class ApiclienteService {
 
   constructor(private http: HttpClient) { }
 
-  getClientes(): Observable<Response> {
-    return this.http.get<Response>(this.url)
+  getClientes(): Observable<Cliente[]> {
+    return this.http.get<Cliente[]>(this.url)
   }
 
   addCliente(cliente: Cliente): Observable<Response> {
