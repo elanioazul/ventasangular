@@ -4,6 +4,7 @@ import { Cliente } from '../models/cliente';
 import { ApiclienteService } from '../services/apicliente.service';
 import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { Injectable } from '@angular/core';
 
 export class ClienteStateModel {
   clientes: Cliente[];
@@ -26,6 +27,7 @@ const initialClienteState: ClienteStateModel = {
     }
 })
 
+@Injectable()
 export class ClienteState {
 
   constructor(private clientesS: ApiclienteService, private router: Router ) {
