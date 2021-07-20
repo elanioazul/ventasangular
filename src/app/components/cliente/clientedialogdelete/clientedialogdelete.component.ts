@@ -37,7 +37,7 @@ export class ClientedialogdeleteComponent implements OnInit {
         if (res.exito === 1) {
           window.alert('cliente Borrado')
         }
-        this.clienteC.obtainClientes();
+        this.clienteC.clientesSub;
       })
     }
   }

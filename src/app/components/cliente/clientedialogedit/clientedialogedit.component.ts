@@ -2,6 +2,13 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Cliente } from 'src/app/models/cliente';
 import { ApiclienteService } from '../../../services/apicliente.service';
 import {ClienteComponent} from '../cliente.component';
+
+import { Select, Store } from '@ngxs/store';
+import { ClienteState } from 'src/app/store/cliente.state';
+import { UpdateCliente, GetClientes  } from 'src/app/store/cliente.actions';
+import { Observable, Subscription} from 'rxjs';
+import { tap } from 'rxjs/operators';
+
 @Component({
   selector: 'app-clientedialogedit',
   templateUrl: './clientedialogedit.component.html',
@@ -16,7 +23,7 @@ export class ClientedialogeditComponent implements OnInit {
   public display: boolean = false;
 
 
-  constructor(public service: ApiclienteService, public clienteC: ClienteComponent) { 
+  constructor(public service: ApiclienteService, public store: Store) { 
   }
 
   ngOnInit(): void {
@@ -37,12 +44,15 @@ export class ClientedialogeditComponent implements OnInit {
   editClient() {
     if (this.clienteToManage !== undefined && this.nombre !== undefined) {
       let c: Cliente = { id: this.clienteToManage.id, nombre: this.nombre};
-      this.service.editCliente(c).subscribe( res => {
-        if (res.exito === 1) {
-          window.alert('cliente Editado')
-        }
-        this.clienteC.obtainClientes();
-      })
+      this.store.dispatch(new UpdateCliente(c));
+      this.store.dispatch(new GetClientes());
+      this.display = false;
+      // this.service.editCliente(c).subscribe( res => {
+      //   if (res.exito === 1) {
+      //     window.alert('cliente Editado')
+      //   }
+      //   this.clienteC.clientesSub;
+      // })
     }
   }
 

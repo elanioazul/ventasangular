@@ -76,7 +76,7 @@ export class ClienteState {
         const state = getState();
         const clienteList = [ ...state.clientes];
         const clienteIndex = clienteList.findIndex(item => item.id === payload.id);
-        clienteList[clienteIndex] = result.data[0];
+        clienteList[clienteIndex].nombre = result.data[0].nombre;
         
         setState({
           ...state,
