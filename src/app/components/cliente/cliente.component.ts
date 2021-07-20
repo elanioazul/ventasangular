@@ -22,9 +22,9 @@ export class ClienteComponent implements OnInit {
   }
 
   obtainClientes() {
-    this.api.getClientes().subscribe ( (res: Cliente[]) => {
-      //console.log(res)
-      this.lst = res;
+    this.api.getClientes().subscribe ( (res: Response) => {
+      //los clientes array vienen en la prop "data" de la Response que he tipado
+      this.lst = res.data;
     })
   }
 

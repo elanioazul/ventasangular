@@ -1,5 +1,6 @@
+import { Cliente } from './cliente'
 export interface Response {
   exito: number,
   mensaje: string,
-  data: any
+  data: Cliente[]
 }

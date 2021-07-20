@@ -5,6 +5,7 @@ import { ApiclienteService } from '../services/apicliente.service';
 import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
+import { patch } from '@ngxs/store/operators';
 
 export class ClienteStateModel {
   clientes: Cliente[];
@@ -21,10 +22,7 @@ const initialClienteState: ClienteStateModel = {
 
 @State<ClienteStateModel>({
     name: 'clientes',
-    defaults: {
-      clientes: [],
-      areClientesLoaded: false
-    }
+    defaults: initialClienteState
 })
 
 @Injectable()
@@ -50,7 +48,7 @@ export class ClienteState {
         const state = getState();
         setState({
           ...state,
-          clientes: result,
+          clientes: result.data,
           areClientesLoaded: true
         })
       })
@@ -78,8 +76,8 @@ export class ClienteState {
         const state = getState();
         const clienteList = [ ...state.clientes];
         const clienteIndex = clienteList.findIndex(item => item.id === payload.id);
-        clienteList[clienteIndex] = result;
-
+        clienteList[clienteIndex] = result.data[0];
+        
         setState({
           ...state,
           clientes: clienteList
@@ -93,14 +91,12 @@ export class ClienteState {
     return this.clientesS.addCliente(payload).pipe(
       tap(res => {
         const state = getState();
-        patchState({
-          clientes: [...state.clientes, res]
-        })
+        setState(
+          patch({
+            clientes: [...state.clientes, res]
+          })
+        );
       })
     )
   }
-}
-
-function patchState(arg0: {}) {
-  throw new Error('Function not implemented.');
 }
