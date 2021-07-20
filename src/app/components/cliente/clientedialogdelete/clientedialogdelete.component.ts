@@ -42,6 +42,10 @@ export class ClientedialogdeleteComponent implements OnInit {
     }
   }
 
+  closeDialog() {
+    this.display = false;
+  }
+
 
 
 }

@@ -3,7 +3,7 @@
   <h1>Edita cliente details</h1>
   <input type="text" [(ngModel)]="nombre">
   <p-footer p-dialog-footer>
-    <button type="button" pButton pRipple label="Cancel" class="p-button-secondary"></button>
+    <button type="button" pButton pRipple label="Cancel" class="p-button-secondary" (click)="closeDialog()"></button>
     <button type="button" pButton pRipple label="Confirm" class="p-mr-2" (click)="editClient()"></button>
   </p-footer>
 </p-dialog>

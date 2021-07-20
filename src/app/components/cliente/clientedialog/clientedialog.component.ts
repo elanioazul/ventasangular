@@ -34,5 +34,9 @@ export class ClientedialogComponent implements OnInit {
     })
   }
 
+  closeDialog() {
+    this.display = false
+  }
+
 
 }
