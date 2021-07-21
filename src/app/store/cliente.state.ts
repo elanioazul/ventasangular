@@ -1,6 +1,7 @@
 import { State, Action, StateContext, Selector } from '@ngxs/store';
 import { AddCliente, GetClientes, UpdateCliente, DeleteCliente} from './cliente.actions';
 import { Cliente } from '../models/cliente';
+import { Response } from '../models/response';
 import { ApiclienteService } from '../services/apicliente.service';
 import { tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
@@ -72,11 +73,11 @@ export class ClienteState {
   @Action(UpdateCliente)
   updateCliente({getState, setState}: StateContext<ClienteStateModel>, {payload}: UpdateCliente) {
     return this.clientesS.editCliente(payload).pipe(
-      tap(result => {
+      tap((result: any ) => {
         const state = getState();
         const clienteList = [ ...state.clientes];
         const clienteIndex = clienteList.findIndex(item => item.id === payload.id);
-        clienteList[clienteIndex].nombre = result.data[0].nombre;
+        clienteList[clienteIndex].nombre = result.data.nombre; //ocurre que el back no está enviando oRespuesta.Data = updated, por eso viene null;
         
         setState({
           ...state,
