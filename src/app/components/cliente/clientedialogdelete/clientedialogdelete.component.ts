@@ -2,6 +2,13 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Cliente } from 'src/app/models/cliente';
 import { ApiclienteService } from '../../../services/apicliente.service';
 import {ClienteComponent} from '../cliente.component';
+
+import { Select, Store } from '@ngxs/store';
+import { ClienteState } from 'src/app/store/cliente.state';
+import { DeleteCliente, GetClientes  } from 'src/app/store/cliente.actions';
+import { Observable, Subscription} from 'rxjs';
+import { tap } from 'rxjs/operators';
+
 @Component({
   selector: 'app-clientedialogdelete',
   templateUrl: './clientedialogdelete.component.html',
@@ -15,7 +22,7 @@ export class ClientedialogdeleteComponent implements OnInit {
 
   public display: boolean = false;
 
-  constructor(public service: ApiclienteService, public clienteC: ClienteComponent) { }
+  constructor(public service: ApiclienteService, public store: Store) { }
 
   ngOnInit(): void {
     if (this.inputCliente !== undefined) {
@@ -33,12 +40,14 @@ export class ClientedialogdeleteComponent implements OnInit {
 
   deleteCliente() {
     if (this.clienteToManage !== undefined && this.id !== undefined) {
-      this.service.deleteCliente(this.id).subscribe( res => {
-        if (res.exito === 1) {
-          window.alert('cliente Borrado')
-        }
-        this.clienteC.clientesSub;
-      })
+      this.store.dispatch(new DeleteCliente(this.id));
+      this.store.dispatch(new GetClientes());
+      // this.service.deleteCliente(this.id).subscribe( res => {
+      //   if (res.exito === 1) {
+      //     window.alert('cliente Borrado')
+      //   }
+      //   this.clienteC.clientesSub;
+      // })
     }
   }
 
